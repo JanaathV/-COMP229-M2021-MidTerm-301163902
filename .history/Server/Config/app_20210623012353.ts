@@ -1,4 +1,4 @@
-// modules for node and express
+// moddules for node and express
 import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
