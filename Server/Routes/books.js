@@ -9,11 +9,8 @@ exports.default = router;
 const books_1 = require("../Controllers/books");
 router.get('/', books_1.DisplayBookListPage);
 router.get('/add', books_1.DisplayAddPage);
-router.post('/add', (req, res, next) => {
-});
+router.post('/add', books_1.ProcessAddPage);
 router.get('/edit/:id', books_1.DisplayEditPage);
-router.post('/edit/:id', (req, res, next) => {
-});
-router.get('/delete/:id', (req, res, next) => {
-});
+router.post('/edit/:id', books_1.ProcessEditPage);
+router.get('/delete/:id', books_1.ProcessDeletePage);
 //# sourceMappingURL=books.js.map

@@ -32,44 +32,46 @@ function DisplayAddPage(req, res, next) {
 exports.DisplayAddPage = DisplayAddPage;
 function ProcessEditPage(req, res, next) {
     let id = req.params.id;
-    let updatedContactItem = new Contact({
+    let updatedBookItem = new books_1.default({
         "_id": id,
-        "name": req.body.name,
-        "email": req.body.email,
-        "phonenumber": req.body.phonenumber
+        "Title": req.body.Title,
+        "Price": req.body.Price,
+        "Author": req.body.Author,
+        "Genre": req.body.Genre
     });
-    Contact.updateOne({ _id: id }, updatedContactItem, {}, (err) => {
+    books_1.default.updateOne({ _id: id }, updatedBookItem, {}, (err) => {
         if (err) {
             console.error(err);
             res.end(err);
         }
-        res.redirect('/contact-list');
+        res.redirect('/books');
     });
 }
 exports.ProcessEditPage = ProcessEditPage;
 function ProcessAddPage(req, res, next) {
-    let newContact = new Contact({
-        "name": req.body.name,
-        "email": req.body.email,
-        "phonenumber": req.body.phonenumber
+    let newBook = new books_1.default({
+        "Title": req.body.Title,
+        "Price": req.body.Price,
+        "Author": req.body.Author,
+        "Genre": req.body.Genre
     });
-    Contact.create(newContact, (err) => {
+    books_1.default.create(newBook, (err) => {
         if (err) {
             console.error(err);
             res.end(err);
         }
-        res.redirect('/contact-list');
+        res.redirect('/books');
     });
 }
 exports.ProcessAddPage = ProcessAddPage;
 function ProcessDeletePage(req, res, next) {
     let id = req.params.id;
-    Contact.remove({ _id: id }, (err) => {
+    books_1.default.remove({ _id: id }, (err) => {
         if (err) {
             console.error(err);
             res.end(err);
         }
-        res.redirect('/contact-list');
+        res.redirect('/books');
     });
 }
 exports.ProcessDeletePage = ProcessDeletePage;

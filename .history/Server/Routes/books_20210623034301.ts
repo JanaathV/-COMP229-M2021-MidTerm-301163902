@@ -22,7 +22,5 @@ router.get('/edit/:id', DisplayEditPage);
 router.post('/edit/:id', ProcessEditPage);
 
 // GET - process the delete by user id
-router.get('/delete/:id', ProcessDeletePage);
+router.get('/delete/:id', ProcessDeletePage
 
-
-//module.exports = router;

@@ -60,24 +60,23 @@ export function ProcessEditPage(req: Request, res: Response, next: NextFunction)
     let id = req.params.id;
 
     // instantiate a new Contact Item
-    let updatedBookItem = new book
+    let updatedContactItem = new Contact
     ({
       "_id": id,
-      "Title": req.body.Title,
-      "Price": req.body.Price,
-      "Author": req.body.Author,
-      "Genre": req.body.Genre
+      "name": req.body.name,
+      "email": req.body.email,
+      "phonenumber": req.body.phonenumber
     });
   
-    // find the book item via db.book.update({"_id":id}) and then update
-    book.updateOne({_id: id}, updatedBookItem, {}, (err) =>{
+    // find the contact item via db.contact.update({"_id":id}) and then update
+    Contact.updateOne({_id: id}, updatedContactItem, {}, (err) =>{
       if(err)
       {
         console.error(err);
         res.end(err);
       }
   
-      res.redirect('/books');
+      res.redirect('/contact-list');
     });
 }
 
@@ -112,14 +111,14 @@ export function ProcessDeletePage(req: Request, res: Response, next: NextFunctio
 {
     let id = req.params.id;
 
-  // db.book.remove({"_id: id"})
-  book.remove({_id: id}, (err) => {
+  // db.contact.remove({"_id: id"})
+  Contact.remove({_id: id}, (err) => {
     if(err)
     {
       console.error(err);
       res.end(err);
     }
 
-    res.redirect('/books');
+    res.redirect('/contact-list');
   });
 }

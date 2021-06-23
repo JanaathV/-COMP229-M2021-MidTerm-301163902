@@ -3,7 +3,7 @@ import express from 'express';
 const router = express.Router();
 export default router;
 
-import {DisplayAddPage, DisplayBookListPage, DisplayEditPage, ProcessAddPage, ProcessDeletePage, ProcessEditPage} from '../Controllers/books';
+import {DisplayAddPage, DisplayBookListPage, DisplayEditPage} from '../Controllers/books';
 
 
 /* GET books List page. READ */
@@ -19,10 +19,21 @@ router.post('/add', ProcessAddPage);
 router.get('/edit/:id', DisplayEditPage);
 
 // POST - process the information passed from the details form and update the document
-router.post('/edit/:id', ProcessEditPage);
+router.post('/edit/:id', (req, res, next) => {
+
+    /*****************
+     * ADD CODE HERE *
+     *****************/
+
+});
 
 // GET - process the delete by user id
-router.get('/delete/:id', ProcessDeletePage);
+router.get('/delete/:id', (req, res, next) => {
+
+    /*****************
+     * ADD CODE HERE *
+     *****************/
+});
 
 
 //module.exports = router;

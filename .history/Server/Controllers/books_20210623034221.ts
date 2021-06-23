@@ -77,7 +77,7 @@ export function ProcessEditPage(req: Request, res: Response, next: NextFunction)
         res.end(err);
       }
   
-      res.redirect('/books');
+      res.redirect('/contact-list');
     });
 }
 

@@ -69,15 +69,15 @@ export function ProcessEditPage(req: Request, res: Response, next: NextFunction)
       "Genre": req.body.Genre
     });
   
-    // find the book item via db.book.update({"_id":id}) and then update
-    book.updateOne({_id: id}, updatedBookItem, {}, (err) =>{
+    // find the contact item via db.contact.update({"_id":id}) and then update
+    Contact.updateOne({_id: id}, updatedContactItem, {}, (err) =>{
       if(err)
       {
         console.error(err);
         res.end(err);
       }
   
-      res.redirect('/books');
+      res.redirect('/contact-list');
     });
 }
 
