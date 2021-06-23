@@ -1,0 +1,76 @@
+<%- include('../partials/header.ejs'); %>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <h1><%= title %></h1>
+            <form class="form" method="post">
+              <div class="form-group">
+                <label for="NameTextField">Title</label>
+                <input type="text" class="form-control" id="NameTextField"
+                placeholder="Book Name" name="Title" value="<%= books.Title %>" required>
+              </div>
+              <div class="form-group">
+                <label for="PriceTextField">Price</label>
+                <input type="text" class="form-control" id="PriceTextField"
+                placeholder="Book Price" name="Price" value="<%= books.Price %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="AuthorTextField">Author</label>
+                <input type="text" class="form-control" id="AuthorTextField"
+                placeholder="Book Author" name="Author" value="<%= books.Author %>"  required>
+              </div>
+              <div class="form-group">
+                <label for="GenreTextField">Genre</label>
+                <input type="text" class="form-control" id="GenreTextField"
+                placeholder="Book Genre" name="Genre" value="<%= books.Genre %>"  required>
+              </div>
+
+              <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Submit</button>
+              <a href="/books" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
+            </form>
+        </div>
+      </div>
+    </div>
+
+<%- include('../partials/footer.ejs'); %>
+
+<div class="row justify-content-lg-center g-3">
+    <h1><%= title %> Book List</h1>
+
+    <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Title</span>
+            <input type="text" class="form-control" placeholder="Enter Contact Name" aria-label="Contact Name" aria-describedby="Contact Name"
+            name="name" value="<%= contact.name %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Price</span>
+            <input type="text" class="form-control" placeholder="Enter Contact E-Mail" aria-label="Contact Email" aria-describedby="Contact Email"
+            name="email" value="<%= contact.email %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Author</span>
+            <input type="text" class="form-control" placeholder="Enter Contact Phone Number" aria-label="Contact Phone Number" aria-describedby="Contact Phone Number"
+            name="phonenumber" value="<%= contact.phonenumber %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name">Author</span>
+            <input type="text" class="form-control" placeholder="Enter Contact Phone Number" aria-label="Contact Phone Number" aria-describedby="Contact Phone Number"
+            name="phonenumber" value="<%= contact.phonenumber %>" required>
+        </div>
+
+            <% if(title == "Edit") { %>
+                <button type="submit" id="editButton" class="btn btn-primary"><i class="fas fa-edit fa-lg"></i> Edit</button>
+            <% } else { %>
+                <button type="submit" id="addButton" class="btn btn-primary"><i class="fas fa-plus-circle fa-lg"></i> Add</button>
+            <% } %>  
+            
+            <a href="/contact-list" id="cancelButton" type="button" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel</a>
+        </div>
+    </form>
+</div>
